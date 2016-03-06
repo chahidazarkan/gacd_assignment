@@ -9,14 +9,14 @@ The original data that is used for this assignment is collected by Jorge L. Reye
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
 The following files were used to create the appropriate dataset (e.g. merged_dataset.csv and mean_variable_subject_activity.csv):
-1. data/train/subject_train.txt
-2. data/train/X_train.txt
-3. data/train/Y_train.txt
-4. data/test/subject_test.txt
-5. data/test/X_test.txt
-6. data/test/Y_test.txt
-7. data/features.txt
-8. data/activity_labels.txt
+1. subject_train.txt
+2. X_train.txt
+3. Y_train.txt
+4. subject_test.txt
+5. X_test.txt
+6. Y_test.txt
+7. features.txt
+8. activity_labels.txt
 
 
 The files 1., 2. and 3. were merged based on row number for all the subjects in the train dataset. The files 4., 5. and 6. were also merged based on row number for the test dataset. Thereafter the names of the columns of both the train and test datasets were changed by using file 7, any special characters were taken out. The activity labels were attached to the right rows based on file 8, only changed to lowercase letters and without special characters.

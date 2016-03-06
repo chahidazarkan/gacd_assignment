@@ -14,28 +14,28 @@ library(tidyr)
 library(stringr)
 
 ## read the train dataset
-train <- read.table(file="data/train/X_train.txt")
+train <- read.table(file="X_train.txt")
 
 ## read the test dataset
-test <- read.table(file="data/test/X_test.txt")
+test <- read.table(file="X_test.txt")
 
 ## read the train subject_id
-subject_train <- read.table(file="data/train/subject_train.txt")
+subject_train <- read.table(file="subject_train.txt")
 
 ## read the test subject_id
-subject_test <- read.table(file="data/test/subject_test.txt")
+subject_test <- read.table(file="subject_test.txt")
 
 ## read the activity_label for the train dataset
-activity_number_train <- read.table(file="data/train/Y_train.txt")
+activity_number_train <- read.table(file="Y_train.txt")
 
 ## read the activity_label for the train dataset
-activity_number_test <- read.table(file="data/test/Y_test.txt")
+activity_number_test <- read.table(file="Y_test.txt")
 
 ## read the variable names
-variablenames <- read.table(file="data/features.txt")
+variablenames <- read.table(file="features.txt")
 
 ## read the acitivty lables
-activity_label <- read.table(file="data/activity_labels.txt")
+activity_label <- read.table(file="activity_labels.txt")
 
 
 #transform the dataframes in table data frames using the dplyr package
@@ -97,7 +97,7 @@ merged_data <- arrange(merged_data, subject_id)
 names(merged_data) <- str_replace_all(names(merged_data), "[[:punct:]]","") 
 
 #makes a csv file of the dataframe merged_data
-write.csv(merged_data, file="merged_dataset.csv")
+write.table(merged_data, row.name=FALSE, file="merged_dataset.csv")
 
 #calculate the mean per variable, per subject, per activitylabel
 mean_variable_subject_activity <- ddply(merged_data, .(subjectid, activitylabel), .fun=colwise(mean))
@@ -106,7 +106,7 @@ mean_variable_subject_activity <- ddply(merged_data, .(subjectid, activitylabel)
 mean_variable_subject_activity <- mean_variable_subject_activity[,1:68]
 
 #makes a csv file of the dataframe mean_variable_subject_activity
-write.csv(mean_variable_subject_activity, file="mean_variable_subject_activity.csv")
+write.table(mean_variable_subject_activity, row.name=FALSE, file="mean_variable_subject_activity.csv")
 
 #clear the workspace, if you want to work with the data in R delete the code below
 rm(list = ls())
