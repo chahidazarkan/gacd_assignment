@@ -3,6 +3,7 @@
 library(dplyr)
 library(plyr)
 library(tidyr)
+library(stringr)
 
 ## read the train dataset
 train <- read.table(file="data/train/X_train.txt")
@@ -55,8 +56,8 @@ names(activity_label) <- c("activity_number", "activity_label")
 activity_label$activity_label <- c("Walking", "Walking upstairs", "Walking downstairs", "Sitting", "Standing", "Laying")
 
 #find columns with mean or std (standard deviation) in name
-train_mean_std <- train[ , grepl("mean", names( train )) | grepl("std", names( train ))]
-test_mean_std <- test[ , grepl("mean", names( test )) | grepl("std", names( test ))]
+train_mean_std <- train[ , grepl("mean\\()", names( train )) | grepl("std", names( train ))]
+test_mean_std <- test[ , grepl("mean\\()", names( test )) | grepl("std", names( test ))]
 
 #add subject ID and activity number to the train and test dataframe
 train_mean_std <- cbind(subject_train, activity_number_train, train_mean_std)
@@ -70,7 +71,7 @@ test_mean_std <- merge(activity_label, test_mean_std, by.x="activity_number")
 train_mean_std <- tbl_df(train_mean_std)
 test_mean_std <- tbl_df(test_mean_std)
 
-#drop the activity number
+#put the activity number as a last column
 train_mean_std <- select(train_mean_std, -activity_number, everything())
 test_mean_std <- select(test_mean_std, -activity_number, everything())
 
@@ -84,4 +85,20 @@ merged_data <- rbind(train_mean_std, test_mean_std)
 #arrange the merged dataset on subject_id
 merged_data <- arrange(merged_data, subject_id)
 
- 
+#remove the special characters from the colnames
+names(merged_data) <- str_replace_all(names(merged_data), "[[:punct:]]","") 
+
+#makes a csv file of the dataframe merged_data
+write.csv(merged_data, file="merged_dataset.csv")
+
+#calculate the mean per variable, per subject, per activitylabel
+mean_variable_subject_activity <- ddply(merged_data, .(subjectid, activitylabel), .fun=colwise(mean))
+
+#drop the activity number
+mean_variable_subject_activity <- mean_variable_subject_activity[,1:68]
+
+#makes a csv file of the dataframe mean_variable_subject_activity
+write.csv(mean_variable_subject_activity, file="mean_variable_subject_activity.csv")
+
+#clear the workspace, if you want to work with the data in R delete the code below
+rm(list = ls())
