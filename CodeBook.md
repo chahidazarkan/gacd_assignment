@@ -8,7 +8,7 @@ The original data that is used for this assignment is collected by Jorge L. Reye
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-The following files were used to create the appropriate dataset (e.g. merged_dataset.csv and mean_variable_subject_activity.csv):
+The following files were used to create the appropriate dataset (e.g. merged_dataset.txt and mean_variable_subject_activity.txt):
 1. subject_train.txt
 2. X_train.txt
 3. Y_train.txt
@@ -120,7 +120,7 @@ This resulted in the following variables in the files merged_dataset.csv and mea
 * fBodyBodyGyroMagstd
 * fBodyBodyGyroJerkMagmean
 * fBodyBodyGyroJerkMagstd
-* activitynumber (=Activity number, not present in the file mean_variable_subject_activity.csv) 
+* activitynumber (=Activity number, not present in the file mean_variable_subject_activity.txt) 
 
 [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
