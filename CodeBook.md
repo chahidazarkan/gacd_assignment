@@ -2,6 +2,7 @@
 title: "CodeBook for the course project for the course Getting and Cleaning Data (coursera)"
 author: "Chahid Azarkan"
 date: "March 6th, 2016"
+output: html_document
 ---
 
 The original data that is used for this assignment is collected by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio and Luca Oneto of Smartlab [1]. They have carried out experiments with a group of 30 volunteers with ages between 19-48 years. Each person performed six activities (Walking, Walking upstairs, Walking downstairs, Sitting, Standing, Laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
@@ -32,27 +33,95 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 These signals were used to estimate variables of the feature vector for each pattern:  
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
+* tBodyAcc-XYZ
+* tGravityAcc-XYZ
+* tBodyAccJerk-XYZ
+* tBodyGyro-XYZ
+* tBodyGyroJerk-XYZ
+* tBodyAccMag
+* tGravityAccMag
+* tBodyAccJerkMag
+* tBodyGyroMag
+* tBodyGyroJerkMag
+* fBodyAcc-XYZ
+* fBodyAccJerk-XYZ
+* fBodyGyro-XYZ
+* fBodyAccMag
+* fBodyAccJerkMag
+* fBodyGyroMag
+* fBodyGyroJerkMag
 
 This resulted in the following variables in the files merged_dataset.csv and mean_variable_subject_activity.csv:
 
-subjectid (=Unique ID of the subject)activitylabel (= Name of the activity)tBodyAccmeanXtBodyAccmeanYtBodyAccmeanZtBodyAccstdXtBodyAccstdYtBodyAccstdZtGravityAccmeanXtGravityAccmeanYtGravityAccmeanZtGravityAccstdXtGravityAccstdYtGravityAccstdZtBodyAccJerkmeanXtBodyAccJerkmeanYtBodyAccJerkmeanZtBodyAccJerkstdXtBodyAccJerkstdYtBodyAccJerkstdZtBodyGyromeanXtBodyGyromeanYtBodyGyromeanZtBodyGyrostdXtBodyGyrostdYtBodyGyrostdZtBodyGyroJerkmeanXtBodyGyroJerkmeanYtBodyGyroJerkmeanZtBodyGyroJerkstdXtBodyGyroJerkstdYtBodyGyroJerkstdZtBodyAccMagmeantBodyAccMagstdtGravityAccMagmeantGravityAccMagstdtBodyAccJerkMagmeantBodyAccJerkMagstdtBodyGyroMagmeantBodyGyroMagstdtBodyGyroJerkMagmeantBodyGyroJerkMagstdfBodyAccmeanXfBodyAccmeanYfBodyAccmeanZfBodyAccstdXfBodyAccstdYfBodyAccstdZfBodyAccJerkmeanXfBodyAccJerkmeanYfBodyAccJerkmeanZfBodyAccJerkstdXfBodyAccJerkstdYfBodyAccJerkstdZfBodyGyromeanXfBodyGyromeanYfBodyGyromeanZfBodyGyrostdXfBodyGyrostdYfBodyGyrostdZfBodyAccMagmeanfBodyAccMagstdfBodyBodyAccJerkMagmeanfBodyBodyAccJerkMagstdfBodyBodyGyroMagmeanfBodyBodyGyroMagstdfBodyBodyGyroJerkMagmeanfBodyBodyGyroJerkMagstdactivitynumber (=Activity number, not present in the file mean_variable_subject_activity.csv)
+* subjectid (=Unique ID of the subject)
+* activitylabel (= Name of the activity)
+* tBodyAccmeanX
+* tBodyAccmeanY
+* tBodyAccmeanZ
+* tBodyAccstdX
+* tBodyAccstdY
+* tBodyAccstdZ
+* tGravityAccmeanX
+* tGravityAccmeanY
+* tGravityAccmeanZ
+* tGravityAccstdX
+* tGravityAccstdY
+* tGravityAccstdZ
+* tBodyAccJerkmeanX
+* tBodyAccJerkmeanY
+* tBodyAccJerkmeanZ
+* tBodyAccJerkstdX
+* tBodyAccJerkstdY
+* tBodyAccJerkstdZ
+* tBodyGyromeanX
+* tBodyGyromeanY
+* tBodyGyromeanZ
+* tBodyGyrostdX
+* tBodyGyrostdY
+* tBodyGyrostdZ
+* tBodyGyroJerkmeanX
+* tBodyGyroJerkmeanY
+* tBodyGyroJerkmeanZ
+* tBodyGyroJerkstdX
+* tBodyGyroJerkstdY
+* tBodyGyroJerkstdZ
+* tBodyAccMagmean
+* tBodyAccMagstd
+* tGravityAccMagmean
+* tGravityAccMagstd
+* tBodyAccJerkMagmean
+* tBodyAccJerkMagstd
+* tBodyGyroMagmean
+* tBodyGyroMagstd
+* tBodyGyroJerkMagmean
+* tBodyGyroJerkMagstd
+* fBodyAccmeanX
+* fBodyAccmeanY
+* fBodyAccmeanZ
+* fBodyAccstdX
+* fBodyAccstdY
+* fBodyAccstdZ
+* fBodyAccJerkmeanX
+* fBodyAccJerkmeanY
+* fBodyAccJerkmeanZ
+* fBodyAccJerkstdX
+* fBodyAccJerkstdY
+* fBodyAccJerkstdZ
+* fBodyGyromeanX
+* fBodyGyromeanY
+* fBodyGyromeanZ
+* fBodyGyrostdX
+* fBodyGyrostdY
+* fBodyGyrostdZ
+* fBodyAccMagmean
+* fBodyAccMagstd
+* fBodyBodyAccJerkMagmean
+* fBodyBodyAccJerkMagstd
+* fBodyBodyGyroMagmean
+* fBodyBodyGyroMagstd
+* fBodyBodyGyroJerkMagmean
+* fBodyBodyGyroJerkMagstd
+* activitynumber (=Activity number, not present in the file mean_variable_subject_activity.csv) 
 
 [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
 
