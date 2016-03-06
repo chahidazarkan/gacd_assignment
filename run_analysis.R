@@ -88,7 +88,7 @@ merged_data <- arrange(merged_data, subject_id)
 names(merged_data) <- str_replace_all(names(merged_data), "[[:punct:]]","") 
 
 #makes a csv file of the dataframe merged_data
-write.table(merged_data, row.name=FALSE, file="merged_dataset.csv")
+write.table(merged_data, row.name=FALSE, file="merged_dataset.txt”)
 
 #calculate the mean per variable, per subject, per activitylabel
 mean_variable_subject_activity <- ddply(merged_data, .(subjectid, activitylabel), .fun=colwise(mean))
@@ -97,7 +97,7 @@ mean_variable_subject_activity <- ddply(merged_data, .(subjectid, activitylabel)
 mean_variable_subject_activity <- mean_variable_subject_activity[,1:68]
 
 #makes a csv file of the dataframe mean_variable_subject_activity
-write.table(mean_variable_subject_activity, row.name=FALSE, file="mean_variable_subject_activity.csv")
+write.table(mean_variable_subject_activity, row.name=FALSE, file="mean_variable_subject_activity.txt”)
 
 #clear the workspace, if you want to work with the data in R delete the code below
 rm(list = ls())
