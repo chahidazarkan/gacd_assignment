@@ -2,7 +2,6 @@
 title: "CodeBook for the course project for the course Getting and Cleaning Data (coursera)"
 author: "Chahid Azarkan"
 date: "March 6th, 2016"
-output: html_document
 ---
 
 The original data that is used for this assignment is collected by Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio and Luca Oneto of Smartlab [1]. They have carried out experiments with a group of 30 volunteers with ages between 19-48 years. Each person performed six activities (Walking, Walking upstairs, Walking downstairs, Sitting, Standing, Laying) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
